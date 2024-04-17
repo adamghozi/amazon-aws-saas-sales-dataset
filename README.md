@@ -8,14 +8,14 @@
 1. [Pendahuluan](#introduction)
 
 2. [Deskripsi dari data set](#section2)
-   2.1 [Statistik Deskriptif](#sec2p1)
-   2.2 [Missing Value dan Outlier](#sec2p2)
-   2.3 [Penambahan Kolom](#sec2p3)
+   1. [Statistik Deskriptif](#sec2p1)
+   2. [Missing Value dan Outlier](#sec2p2)
+   3. [Penambahan Kolom](#sec2p3)
 
 3. [Data Analysis](#section3)
-   3.1 [Uji Normaltest](#sec3p1)
-   3.2 [Uji Korelasi Spearman](#sec3p2)
-   3.3 [Profit Paling Rendah Berdasarkan `Subregion` dan `Product`](#sec3p3)
+   1. [Uji Normaltest](#sec3p1)
+   2. [Uji Korelasi Spearman](#sec3p2)
+   3. [Profit Paling Rendah Berdasarkan `Subregion` dan `Product`](#sec3p3)
 
 4. [Kesimpulan Data Analysis](#section4)
 
