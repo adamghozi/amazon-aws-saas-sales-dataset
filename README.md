@@ -8,7 +8,20 @@
 1. [Pendahuluan](#introduction)
 
 2. [Deskripsi dari data set](#section2)
+   2.1 [Statistik Deskriptif](#sec2p1)
+   2.2 [Missing Value dan Outlier](#sec2p2)
+   2.3 [Penambahan Kolom](#sec2p3)
 
+3. [Data Analysis](#section3)
+   3.1 [Uji Normaltest](#sec3p1)
+   3.2 [Uji Korelasi Spearman](#sec3p2)
+   3.3 [Profit Paling Rendah Berdasarkan `Subregion` dan `Product`](#sec3p3)
+
+4. [Kesimpulan Data Analysis](#section4)
+
+5. [Referensi](#section5)
+   
+  
 ## 1. Pendahuluan <a name="introduction"></a>
 - README ini menjelaskan pekerjaan yang dilakukan pada set data AWS SaaS Sales. Sumber daya yang digunakan termasuk Python dan paket terkait Jupyter, matplotlib, Seaborn, statsmodels, dan SciPy. Semua paket ini disertakan sebagai bagian dari distribusi Anaconda Python.
 - Analisis ini berbentuk satu notebook Jupyter dengan nama file yang diberikan di atas. Untuk melihat file ini, unduh dari repositori ini dan mulai notebook Jupyter di folder yang berisi file tersebut. Gunakan perintah Jupyter notebook pada baris perintah.
@@ -36,15 +49,15 @@ Perlu dilakukan pengecekan terhadap `missing value` dan `outlier` dalam data set
 
 Dari data set, tidak ditemukan data NaN atau `missing value` dan tidak ada outlier yang tidak diperlukan dalam analisis, maka tidak dilakukan data cleaning.
 
-## 2.3 Penambahan Kolom
+## 2.3 Penambahan Kolom <a name="sec2p3"></a>
 
 Selanjutnya, perlu ditambahkan kolom `datetime` pada dataset agar disaat analisis dapat melihat tren dari data. hal ini dilakukan dengan menggunakan kolom `Date Key`.
 
-# 3. Data Analysis
+# 3. Data Analysis <a name="section3"></a>
 
 Setelah melakukan tahap Data Cleaning. Sekarang, data siap untuk dianalisis untuk mencari tahu bagaimana pengaruh `Profit` dengan `Sales`, `Quantity` dan `Discount`. 
 
-## 3.1 Uji Normaltest
+## 3.1 Uji Normaltest <a name="sec3p1"></a>
 
 Perlu dilakukan uji normaltest untuk menentukan uji parametrik atau non parametrik yang akan digunakan pada analisis selanjutnya. Berikut adalah hasil dari uji normaltest dari kolom `Sales`, `Quantity`, `Discount` dan `Profit`.
 
@@ -59,7 +72,7 @@ Profit is not normally distributed (reject H0)
 
 Hasil diatas menunjukkan bahwa keempat kolom diatas memiliki data yang tidak terdistribusi normal. Maka, untuk selanjutnya perlu dilakukan uji non-parametrik.
 
-## 3.2 Uji Korelasi Spearman
+## 3.2 Uji Korelasi Spearman <a name="sec3p2"></a>
 
 Perlu dilakukan uji korelasi antara `Profit` dengan `Sales`, `Quantity` dan `Discount` untuk melihat apakah ada korelasi kuat antara kolom tersebut
 
@@ -72,15 +85,39 @@ Berdasarkan hasil diatas,
 * antara Quantity dan Profit memiliki hubungan yang lemah dan positif,
 * antara Discount dan Profit memiliki hubungan yang moderat dan negatif.
 
-## 3.3 Profit Paling Rendah Berdasarkan `Subregion` dan `Product`
+## 3.3 Profit Paling Rendah Berdasarkan `Subregion` dan `Product` <a name="sec3p3"></a>
 
-Berdasarkan hasil analisis, profit paling rendah adalah pada `Subregion` ANZ dan JAPN. sementara pada kedua `Subregion` tersebut `Product` dengan profit paling rendah adalah ContactMatcher.
+Berdasarkan hasil analisis, profit paling rendah adalah pada `Subregion` ANZ dan JAPN. sementara pada kedua `Subregion` tersebut `Product` dengan profit paling rendah adalah ContactMatcher. Selanjutnya dilakukan uji korelasi koefisien antara `Profit` dan `Discount` dikalikan dengan `Sales` pada `Subregion` ANZ dan JAPN dengan `Product` ContactMatcher, berikut hasil uji korelasinya.
 
+Spearman's correlation coefficient antara Discount*Sales dan Profit di `Subregion` ANZ: -0.9603105960173816
+Spearman's correlation coefficient antara Discount*Sales dan Profit di `Subregion` JAPN: -0.904091425332207
 
+Berdasarkan hasil tersebut, dapat disimpulkan bahwa antara `Profit` dan `Discount` dikalikan dengan `Sales` memiliki korelasi yang sangat kuat dan negatif.
 
-## 7. References
+## 4. Kesimpulan Data Analysis <a name="section4"></a>
 
-**General:**
+Kesimpulan utama adalah sebagai berikut
+1. `Profit`:
+    - Rata-rata: 28.66
+    - Standar Deviasi: 234.26
+    - Minimum: -6599.98
+    - Median: 8.67
+    - Maximum: 8399.98
+2. `Sales`:
+    - Rata-rata: 229.86
+    - Standar Deviasi: 623.25
+    - Minimum: 0.44
+    - Median: 54.49
+    - Maximum: 22638.58
+3. `Discount`:
+    - Rata-rata: 0.16
+    - Standar Deviasi: 0.21
+    - Minimum: 0.00
+    - Median: 0.20
+    - Maximum: 0.80
+4. Korelasi antara `Profit` dan `Discount` dikalikan dengan `Sales` pada `Subregion` ANZ dan JAPN dengan `Product` ContactMatcher adalah -0.96 pada `Subregion` ANZ dan 0.90 pada `Subregion` JAPN.
+
+## 5. Referensi <a name="section5"></a>
 
 - [1]  Anaconda Distribution
 https://www.anaconda.com/
