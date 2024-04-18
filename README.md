@@ -61,14 +61,14 @@ Setelah melakukan tahap Data Cleaning. Sekarang, data siap untuk dianalisis untu
 
 Perlu dilakukan uji normaltest untuk menentukan uji parametrik atau non parametrik yang akan digunakan pada analisis selanjutnya. Berikut adalah hasil dari uji normaltest dari kolom `Sales`, `Quantity`, `Discount` dan `Profit`.
 
-Sales: Statistics=18033.308, p-value=0.000
-Sales is not normally distributed (reject H0)
-Quantity: Statistics=2148.018, p-value=0.000
-Quantity is not normally distributed (reject H0)
-Discount: Statistics=2977.822, p-value=0.000
-Discount is not normally distributed (reject H0)
-Profit: Statistics=14363.736, p-value=0.000
-Profit is not normally distributed (reject H0)
+Sales: Statistics=18033.308, p-value=0.000.
+Sales is not normally distributed (reject H0).
+Quantity: Statistics=2148.018, p-value=0.000.
+Quantity is not normally distributed (reject H0).
+Discount: Statistics=2977.822, p-value=0.000.
+Discount is not normally distributed (reject H0).
+Profit: Statistics=14363.736, p-value=0.000.
+Profit is not normally distributed (reject H0).
 
 Hasil diatas menunjukkan bahwa keempat kolom diatas memiliki data yang tidak terdistribusi normal. Maka, untuk selanjutnya perlu dilakukan uji non-parametrik.
 
